@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Loading Test</title>
+    <!-- Empty favicon: stops the browser from requesting /favicon.ico on every visit -->
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main>
+    <header class="page-head">
+        <div class="intro">
+            <h1>Image loading test</h1>
+            <p>Choose an image size to download from this server, or load them all at once.
+               Each card shows live progress, total time and transfer speed.</p>
+        </div>
+        <div class="toolbar">
+            <span id="summary" class="summary">0 of 4 loaded</span>
+            <button id="clear-all" class="btn btn-quiet" type="button">Clear</button>
+            <button id="load-all" class="btn btn-primary" type="button">Load all images</button>
+        </div>
+    </header>
+
+    <section id="grid" class="image-grid"></section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
