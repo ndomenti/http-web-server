@@ -1,13 +1,12 @@
-# web_server
 
-A lightweight C++20 web server built for high throughput, featuring epoll-driven I/O and zero-copy sendfile transfers.
+
+A lightweight high throughput C++20 web server, featuring epoll-driven I/O and zero-copy sendfile transfers.
 
 ## Features
 
-- **Event-Driven Networking:** Non-blocking socket I/O powered by Linux `epoll` to handle concurrent connections efficiently.
-- **Zero-Copy File Transfers:** Streams static assets directly from kernel space to the client socket via `sendfile()`, avoiding user-space buffer copies even on large files.
-- **Zero-Copy HTTP Parsing:** Parses request lines and headers in-place using `std::string_view` slices over the connection read buffer.
-- **Non-Blocking Send Pipeline:** Tracks partial `send()` and `sendfile()` progress across `EAGAIN` / `EWOULDBLOCK` events cleanly.
+- **Event-Driven Networking:** Non-blocking socket I/O via Linux `epoll` for concurrent clients.
+- **Zero-Copy File Transfers:** Streams static files directly from kernel space via `sendfile()`.
+- **Zero-Copy HTTP Parsing:** Parses request lines and headers in-place with `std::string_view`.
 
 ## Project Structure
 
@@ -29,8 +28,6 @@ A lightweight C++20 web server built for high throughput, featuring epoll-driven
 ## Quick Start
 
 ### Docker (Recommended)
-
-Builds the Release binary inside an Alpine builder stage and runs it with `/app/static` as the working directory on port `80`:
 
 ```bash
 docker build -t web_server .
