@@ -15,7 +15,7 @@ public:
     Server(int port);
     ~Server();
 
-    void run ();
+    void run();
 
 private:
     int listen_fd_;
