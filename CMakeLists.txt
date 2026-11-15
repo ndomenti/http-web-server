@@ -3,19 +3,22 @@ project(web_server)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(web_server src/main.cpp
-
+set(HEADERS
         src/http/HttpRequest.hpp
-        src/http/HttpRequest.cpp
-
         src/http/HttpResponse.hpp
-        src/http/HttpResponse.cpp
-
         src/net/Server.hpp
-        src/net/Server.cpp
-
         src/net/Connection.hpp
-        src/net/Connection.cpp
-
         src/net/ResponseFile.hpp
-        src/net/ResponseFile.cpp)
+)
+
+set(SOURCES
+        src/http/HttpRequest.cpp
+        src/http/HttpResponse.cpp
+        src/net/Server.cpp
+        src/net/Connection.cpp
+        src/net/ResponseFile.cpp
+)
+
+add_executable(${PROJECT_NAME} src/main.cpp ${SOURCES} ${HEADERS})
+
+target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Wextra)
