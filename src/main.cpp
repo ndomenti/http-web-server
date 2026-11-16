@@ -5,8 +5,3 @@ int main() {
     server.run();
     return 0;
 }
-
-/*
- * README.md
- * Dockerfile
- */
