@@ -46,7 +46,7 @@ bool Connection::handle_write() {
 }
 
 bool Connection::handle_read() {
-    uint8_t recv_buff[RECV_BUFF_SIZE];
+    char recv_buff[RECV_BUFF_SIZE];
     while (true) {
         int bytes_read = recv(conn_fd_, recv_buff, RECV_BUFF_SIZE, 0);
         if (bytes_read == -1) {
